@@ -70,3 +70,7 @@ ul li a {
     flex-direction: row; 
     margin-right: 10px;
 }
+
+.carrito {
+ size: 30px;
+}
