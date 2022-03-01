@@ -1,6 +1,6 @@
 import React from 'react'
-import '../css/NavBar.css'
-import CarWidget from './CarWidget/CarWidget'
+import './css/NavBar.css'
+import CarWidget from './components/CarWidget/CarWidget'
 
 const NavBar = () => {
   return (
