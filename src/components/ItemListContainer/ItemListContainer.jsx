@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { productos } from '../../data/productos';
 import { listarArray } from '../helpers/listarArray';
-import ItemCount from '../ItemCount/ItemCount';
 import TituloApp from '../TituloApp/TituloApp';
 import { ItemList } from './ItemList';
 
