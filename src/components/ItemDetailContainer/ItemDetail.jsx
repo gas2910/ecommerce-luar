@@ -1,7 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 
-const ItemDetail = ({img, nombre, precio, caracteristicas}) => {
+
+const ItemDetail = ({items}) => {
+    const {img, nombre, precio, caracteristicas} = items
     return (
         <div>
             <img src={img} alt="" />
