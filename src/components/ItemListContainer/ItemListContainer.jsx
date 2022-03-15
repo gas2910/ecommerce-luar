@@ -17,7 +17,7 @@ function ItemListContainer ({greeting}) {
             setLoading(true)
             listarArray(productos)
             .then((res) => {
-            setItems(res.filter(prod =>prod.categoria==='categoriaId'))
+            setItems(res.filter(prod =>prod.categoria===categoriaId))
             })
             .catch((err) => console.log(err))
             .finally(() => {

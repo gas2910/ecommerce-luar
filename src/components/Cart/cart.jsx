@@ -1,7 +1,9 @@
 
 function Cart() {
   return (
-    <div>carrito</div>
+    <div>
+        <h3>carrito</h3>
+    </div>
   )
 }
 

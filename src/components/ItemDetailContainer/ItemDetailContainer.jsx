@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
         setLoading(true)
         listarArray(productos)
         .then((res) => {
-            setItems(res.find (prod => prod.id === 'detalleId'))
+            setItems(res.find (prod => prod.id === detalleId))
         })
         .catch((err) => console.log(err))
         .finally(() => {

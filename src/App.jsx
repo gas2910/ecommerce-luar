@@ -3,6 +3,8 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './NavBar'
 import './App.css';
+import CarWidget from './components/CarWidget/CarWidget';
+import Cart from './components/Cart/Cart';
 
 
 
@@ -20,6 +22,7 @@ function App() {
           <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting = 'BIENVENIDO!!'/>}/>
           <Route path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
           <Route path='/*' element={<Navigate to='/' replace />}/>       
+          <Route path='/cart' element={<Cart/>}/>  
         </Routes>
       </div>
     </BrowserRouter>    
