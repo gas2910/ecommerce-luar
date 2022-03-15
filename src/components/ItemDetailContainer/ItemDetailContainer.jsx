@@ -9,13 +9,14 @@ const ItemDetailContainer = () => {
     //llamada a la API
     const [items, setItems] = useState({})
     const [loading, setLoading] = useState(false)
-    
+    const {detalleId} = useParams ()
+    console.log(detalleId)
     
     useEffect(() => {
         setLoading(true)
         listarArray(productos)
         .then((res) => {
-            setItems(res.find (prod => prod.id === '1'))
+            setItems(res.find (prod => prod.id === 'detalleId'))
         })
         .catch((err) => console.log(err))
         .finally(() => {

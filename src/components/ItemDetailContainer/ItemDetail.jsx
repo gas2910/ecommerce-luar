@@ -1,8 +1,10 @@
 import React from "react";
 
 
+
 const ItemDetail = ({items}) => {
     const {img, nombre, precio, caracteristicas} = items
+
     return (
         <div>
             <img src={img} alt="" />
