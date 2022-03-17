@@ -3,29 +3,32 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './NavBar'
 import './App.css';
-import CarWidget from './components/CarWidget/CarWidget';
 import Cart from './components/Cart/Cart';
+
+
 
 
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <div className="App">
-      <header className="App-header">
-          <h2 className="titular-main" ><Link to = "/">LUAR</Link> </h2>
-          <NavBar/> 
-        </header>
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting = 'BIENVENIDO!!'/>}/>
-          <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting = 'BIENVENIDO!!'/>}/>
-          <Route path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
-          <Route path='/*' element={<Navigate to='/' replace />}/>       
-          <Route path='/cart' element={<Cart/>}/>  
-        </Routes>
-      </div>
-    </BrowserRouter>    
+      <BrowserRouter>
+        <div className="App">
+        <header className="App-header">
+            <h2 className="titular-main" ><Link to = "/">LUAR</Link> </h2>
+            <NavBar/> 
+          </header>
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting = 'BIENVENIDO!!'/>}/>
+            <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting = 'BIENVENIDO!!'/>}/>
+            <Route path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
+            <Route path='/*' element={<Navigate to='/' replace />}/>       
+            <Route path='/cart' element={<Cart/>}/>  
+          </Routes>
+        </div>
+      </BrowserRouter> 
+
+    
   );
 }
 
