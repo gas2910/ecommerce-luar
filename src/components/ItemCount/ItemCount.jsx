@@ -14,15 +14,14 @@ const ItemCount = ({ initial, stock, onAdd }) => {
             setCount( count - 1 )
         }
     }
-    const agregar = () => {
-        onAdd( count )
-    }
+    // const agregar = () => {
+    //     onAdd( count )
+    // }
     return (
         <div>
             <button onClick={restar}> - </button>
             <label> { count } </label>
             <button onClick={sumar}> + </button><br />
-            <button onClick={ agregar }>Agregar al carrito</button>
         </div>
     )
 }
