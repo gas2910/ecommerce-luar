@@ -4,6 +4,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './NavBar'
 import './App.css';
 import Cart from './components/Cart/Cart';
+import CartContextProvider from './context/cartContext';
+
 
 
 
@@ -12,6 +14,8 @@ import Cart from './components/Cart/Cart';
 function App() {
 
   return (
+    <CartContextProvider>
+    
       <BrowserRouter>
         <div className="App">
         <header className="App-header">
@@ -26,9 +30,10 @@ function App() {
             <Route path='/cart' element={<Cart/>}/>  
           </Routes>
         </div>
-      </BrowserRouter> 
+      </BrowserRouter>
 
-    
+    </CartContextProvider>  
+       
   );
 }
 

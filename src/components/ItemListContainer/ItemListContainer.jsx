@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { productos } from '../../data/productos';
+import {getFirestore, doc, getDoc} from '../../firebase/config';
 import { listarArray } from '../helpers/listarArray';
 import TituloApp from '../TituloApp/TituloApp';
 import { ItemList } from './ItemList';
-
+ 
 
 function ItemListContainer ({greeting}) { 
     
@@ -37,6 +38,14 @@ function ItemListContainer ({greeting}) {
             })
         }
    },[categoriaId])
+
+//    useEffect(() =>{
+//        const db = getFirestore()
+//        const queryDb = doc(db, 'productos', '4grXjb1081u2oIC4SgZi')
+//        getDoc(queryDb)
+//        .then(resp => console.log(resp))
+//        console.log(queryDb)
+//    },[])
 
    console.log(categoriaId)
 
