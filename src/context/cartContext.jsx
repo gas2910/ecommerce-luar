@@ -15,11 +15,26 @@ const vaciarCarrito = () =>{
     setCartList([])
 }
 
+const sumaTotal = () => {
+    
+}
+
+const eliminarItem = () =>{
+
+}
+
+const terminarCompra = () =>{
+
+}
+
 return (
     <CartContext.Provider value = {{
         cartList,
         agregarAlCarrito,
-        vaciarCarrito
+        vaciarCarrito,
+        sumaTotal,
+        eliminarItem,
+        terminarCompra
     }}>    
         {children}
     </CartContext.Provider>
