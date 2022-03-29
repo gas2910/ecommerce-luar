@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { productos } from '../../data/productos';
-import {getFirestore, doc, getDoc} from '../../firebase/config';
+
+import {getFirestore, collection, getDocs, query, where} from 'firebase/firestore';
+
 import { listarArray } from '../helpers/listarArray';
 import TituloApp from '../TituloApp/TituloApp';
 import { ItemList } from './ItemList';
@@ -13,41 +15,57 @@ function ItemListContainer ({greeting}) {
     const [loading, setLoading] = useState(false)
     const {categoriaId} = useParams()
 
-    useEffect(() => {
+    useEffect(() =>{
         if (categoriaId){
-            setLoading(true)
-            listarArray(productos)
-            .then((res) => {
-            setItems(res.filter(prod =>prod.categoria===categoriaId))
-            })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+        // setLoading(true)
+        const db = getFirestore()
+        const queryCollection = collection(db, 'productos')
+        const queryFilter = query(queryCollection, where('categoria', '==', categoriaId))
+        getDocs(queryFilter)
+        .then(resp => setItems(resp.docs.map(item => ({id: item.id, ...item.data()}) )) )
+        // .catch((err) => console.log(err))
+        // .finally(() => {setLoading(false)})
 
         }else{
-  
-            setLoading(true)
-            listarArray(productos)
-            .then((res) => {
-            setItems(res)
-            })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+        
+            const db = getFirestore()
+            const queryCollection = collection(db, 'productos')
+            getDocs(queryCollection)
+            .then(resp => setItems(resp.docs.map(item => ({id: item.id, ...item.data()}) )) )
+            console.log(queryCollection)
+            // .catch((err) => console.log(err))
+            // .finally(() => {setLoading(false)})
         }
-   },[categoriaId])
 
-//    useEffect(() =>{
-//        const db = getFirestore()
-//        const queryDb = doc(db, 'productos', '4grXjb1081u2oIC4SgZi')
-//        getDoc(queryDb)
-//        .then(resp => console.log(resp))
-//        console.log(queryDb)
-//    },[])
+        
+    },[categoriaId])
 
-   console.log(categoriaId)
+//     useEffect(() => {
+//         if (categoriaId){
+//             setLoading(true)
+//             listarArray(productos)
+//             .then((res) => {
+//             setItems(res.filter(prod =>prod.categoria===categoriaId))
+//             })
+//             .catch((err) => console.log(err))
+//             .finally(() => {
+//                 setLoading(false)
+//             })
+
+//         }else{
+  
+//             setLoading(true)
+//             listarArray(productos)
+//             .then((res) => {
+//             setItems(res)
+//             })
+//             .catch((err) => console.log(err))
+//             .finally(() => {
+//                 setLoading(false)
+//             })
+//         }
+//    },[categoriaId])
+
 
     return (
         <div>
