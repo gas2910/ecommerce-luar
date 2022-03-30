@@ -2,8 +2,10 @@ import React from 'react'
 import './css/NavBar.css'
 import CarWidget from './components/CarWidget/CarWidget'
 import { NavLink } from 'react-router-dom'
+import { useCartContext } from './context/cartContext'
 
 const NavBar = () => {
+  const {sumaItems} = useCartContext()
   return (
     <div className="NavBar">  
         <nav>
@@ -14,7 +16,7 @@ const NavBar = () => {
                 <li><NavLink to = "categoria/Azucar Saborizada" id="boton-recetas" className="margin-nav" >AZUCAR</NavLink></li>
                 <li><NavLink to = "categoria/Te en Hebras" id="boton-contacto" className="margin-nav" >TE</NavLink></li>
                 <li><NavLink to = "categoria/Cerámica Artesanal" id="boton-contacto" className="margin-nav" >CERÁMICA</NavLink></li>
-                <li><NavLink to = "cart" id="carrito" className="margin-nav"><CarWidget/></NavLink></li>  
+                <li><NavLink to = "cart" id="carrito" className="margin-nav"><CarWidget/>{sumaItems() !== 0 && sumaItems()}</NavLink></li>  
             </ul> 
         </nav>
         

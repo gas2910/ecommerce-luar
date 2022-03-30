@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { useCartContext } from "../../context/cartContext"
 
-
-
 const ItemDetail = ({items}) => {
     const {img, nombre, precio, caracteristicas, stock} = items
     const [count, setCount] = useState(null)
@@ -17,7 +15,6 @@ const ItemDetail = ({items}) => {
 
     console.log(cartList)
     
-
     return (
         <div>
             <img src={img} alt="" />

@@ -11,16 +11,20 @@ const agregarAlCarrito = (item) => {
     setCartList([...cartList, item])
 }
 
+const eliminarItem= (id) => {
+    setCartList( cartList.filter(item => item.id !== id) )
+}
+
 const vaciarCarrito = () =>{
     setCartList([])
 }
 
-const sumaTotal = () => {
-    
+const precioTotal = () => {
+    return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.precio) , 0)
 }
 
-const eliminarItem = () =>{
-
+const sumaItems = () => {
+    return cartList.reduce((acum, prod) => acum += prod.cantidad , 0)// acum = acum + cantidad
 }
 
 const terminarCompra = () =>{
@@ -32,7 +36,8 @@ return (
         cartList,
         agregarAlCarrito,
         vaciarCarrito,
-        sumaTotal,
+        precioTotal,
+        sumaItems,
         eliminarItem,
         terminarCompra
     }}>    

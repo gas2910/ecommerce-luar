@@ -7,10 +7,6 @@ import Cart from './components/Cart/Cart';
 import CartContextProvider from './context/cartContext';
 
 
-
-
-
-
 function App() {
 
   return (
@@ -18,7 +14,7 @@ function App() {
     
       <BrowserRouter>
         <div className="App">
-        <header className="App-header">
+          <header className="App-header">
             <h2 className="titular-main" ><Link to = "/">LUAR</Link> </h2>
             <NavBar/> 
           </header>
