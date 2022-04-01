@@ -7,18 +7,17 @@ import ItemDetail from './ItemDetail'
 const ItemDetailContainer = () => {
     //llamada a la API
     const [items, setItems] = useState({})
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const {detalleId} = useParams ()
     
     
     useEffect(() =>{
-        // setLoading(true)
         const db = getFirestore()
         const queryDb = doc(db, 'productos', detalleId)
         getDoc(queryDb)
         .then(resp => setItems({id:resp.id, ...resp.data()}) )
-        // .catch((err) => console.log(err))
-        // .finally(() => {setLoading(false)})
+        .catch((err) => console.log(err))
+        .finally(() => {setLoading(false)})
     },[detalleId])
 
   return (

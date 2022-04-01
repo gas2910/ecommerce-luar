@@ -13,7 +13,6 @@ function ItemListContainer ({greeting}) {
 
     useEffect(() =>{
         if (categoriaId){
-            // setLoading(true)
             const db = getFirestore()
             const queryCollection = collection(db, 'productos')
             const queryFilter = query(queryCollection, where('categoria', '==', categoriaId))

@@ -23,6 +23,10 @@ const precioTotal = () => {
     return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.precio) , 0)
 }
 
+const precioParcial = () => {
+    
+}
+
 const sumaItems = () => {
     return cartList.reduce((acum, prod) => acum += prod.cantidad , 0)// acum = acum + cantidad
 }
@@ -37,6 +41,7 @@ return (
         agregarAlCarrito,
         vaciarCarrito,
         precioTotal,
+        precioParcial,
         sumaItems,
         eliminarItem,
         terminarCompra
