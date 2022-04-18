@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <h2 className="titular-main" ><Link to = "/"><TituloApp titulo= 'LUAR'/></Link> </h2>
+            <Link to = "/"><TituloApp titulo= 'LUAR'/></Link> 
             <NavBar/> 
           </header>
           <Routes>
