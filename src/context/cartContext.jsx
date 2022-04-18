@@ -7,8 +7,21 @@ export const useCartContext = () => useContext(CartContext)
 function CartContextProvider ({children}) {
 const [cartList, setCartList] = useState([])
 
+
 const agregarAlCarrito = (item) => {
-    setCartList([...cartList, item])
+    let productoRepetido = cartList.find(producto => producto.id === item.id)
+    if (productoRepetido){
+        let newCartList = cartList.map(cartItem => {
+            if (cartItem.id === productoRepetido.id){
+                productoRepetido.cantidad = cartItem.cantidad + item.cantidad
+            }
+            return cartItem
+        })
+        setCartList(newCartList)
+    }else{
+        setCartList([...cartList, item])
+    }
+    
 }
 
 const eliminarItem= (id) => {
@@ -23,16 +36,8 @@ const precioTotal = () => {
     return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.precio) , 0)
 }
 
-const precioParcial = () => {
-    
-}
-
 const sumaItems = () => {
-    return cartList.reduce((acum, prod) => acum += prod.cantidad , 0)// acum = acum + cantidad
-}
-
-const terminarCompra = () =>{
-
+    return cartList.reduce((acum, prod) => acum += prod.cantidad , 0)
 }
 
 return (
@@ -41,16 +46,12 @@ return (
         agregarAlCarrito,
         vaciarCarrito,
         precioTotal,
-        precioParcial,
         sumaItems,
-        eliminarItem,
-        terminarCompra
+        eliminarItem   
     }}>    
         {children}
     </CartContext.Provider>
-)
-
-}
+)}
 
 export default CartContextProvider
 

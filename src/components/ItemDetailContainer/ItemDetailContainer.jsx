@@ -12,12 +12,12 @@ const ItemDetailContainer = () => {
     
     
     useEffect(() =>{
-        const db = getFirestore()
-        const queryDb = doc(db, 'productos', detalleId)
-        getDoc(queryDb)
-        .then(resp => setItems({id:resp.id, ...resp.data()}) )
-        .catch((err) => console.log(err))
-        .finally(() => {setLoading(false)})
+      const db = getFirestore()
+      const queryDb = doc(db, 'productos', detalleId)
+      getDoc(queryDb)
+      .then(resp => setItems({id:resp.id, ...resp.data()}) )
+      .catch((err) => console.log(err))
+      .finally(() => {setLoading(false)})
     },[detalleId])
 
   return (

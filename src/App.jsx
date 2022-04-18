@@ -5,6 +5,7 @@ import NavBar from './NavBar'
 import './App.css';
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './context/cartContext';
+import TituloApp from './components/TituloApp/TituloApp';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <h2 className="titular-main" ><Link to = "/">LUAR</Link> </h2>
+            <h2 className="titular-main" ><Link to = "/"><TituloApp titulo= 'LUAR'/></Link> </h2>
             <NavBar/> 
           </header>
           <Routes>
