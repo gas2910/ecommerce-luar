@@ -1,7 +1,7 @@
 # ecommerce-luar
 
 El proyecto de ecommerce está elaborado en React Js. conectado a Firebase / Firestore.
-Funcionalidades:
+# Funcionalidades:
 Es navegable en home y muestra todos los productos disponibles con imagen, nombre y un botón de características.
 Además se puede navegar por cada categoria : Sal, Salsas, Azucar, Té y Cerámica.
 Al navegar características de producto muestra el detalle: imagen y nombre nuevamente, precio, stock, descripción y selección de cantidad de productos a comprar.
